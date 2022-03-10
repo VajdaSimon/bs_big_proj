@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Rubik&display=swap');
+.cover {
+    background-image: url(assets/img/cover.png);
+    background-size: cover;
+    font-family: 'Rubik', sans-serif;
+}
+
+.cover h1 {
+    font-size: 50px;
+    border-bottom: 5px solid white;
+}
+
+.cover p {
+    font-size: 50px;
+}
+
+body {
+    background-color: #242424;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='141' height='141' viewBox='0 0 20 20'%3E%3Cg fill-opacity='0.51'%3E%3Cpolygon fill='%231D1D1D' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon fill='%231D1D1D' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gameMod div {
+    border-radius: 0.3rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.gameMod h1 {
+    font-size: 2.7rem;
+}
+
+.gameMod h2 {
+    text-align: center;
+    color: rgb(202, 50, 50);
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.gameMod p {
+    font-size: 1.2rem;
+}
+
+#szavazasParent button,.progress-bar {
+    font-size: 1.6rem;
+}
+
+.discord {
+    cursor: pointer;
+}

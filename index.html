@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="hu">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title></title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-whitet">
+            <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="logo" class="d-inline block align-top ml-lg-5 ml-2" width="50" height="50"></a>
+            <button class="navbar-toggler ml-auto mr-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item active ml-lg-3">
+                  <a class="nav-link" href="#">Kezdőlap <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                  <a class="nav-link" href="#">A játékról</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                  <a class="nav-link" href="html/szerver-allapot.html">Szerver állapot</a>
+                </li>
+                <li class="nav-item dropdown ml-lg-3">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        WIKI
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Hogyan telepítsd a játékot?</a>
+                      <a class="dropdown-item" href="#">Hogyan csatlakozz a szerverhez?</a>
+                      <a class="dropdown-item" href="#">Hogyan tudsz segíteni a játék fordításában?</a>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid cover">
+            <div class="container text-white text-center">
+                <h1 class="pb-3">A hivatalos magyar Mindustry szerver</h1>
+                <p>HUDUSTRY.TK</p>
+            </div>
+        </div>
+
+        <div class="container text-white pb-5">
+            <div class="row gameMod">
+                <div class="col-12 text-center">
+                    <h1>Szervereink</h1>
+                </div>
+                <div class="col-lg-3 col-12 col-md-5 bg-info mx-auto my-2">
+                    <h2 class="my-2">Survival</h2>
+                    <p>Élj túl számtalan hullámot különböző pályákon. Ne hátrálj meg ha jönn az ellenség, fejlődj tovább!</p>
+                </div>
+                <div class="col-lg-3 col-12 col-md-5 bg-info mx-auto my-2">
+                    <h2 class="my-2">Attack</h2>
+                    <p>Az ellenség már itt van! Légy te a hős és mentsd meg a Core-t!</p>
+                </div>
+                <div class="col-lg-3 col-12 col-md-5 bg-info mx-auto my-2">
+                    <h2 class="my-2">1v1</h2>
+                    <p>Vajon ki a jobb játékos? Te vagy a barátod? Itt az idő, hogy kiderítsd!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="jumbotron jumbotron-fluid bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-12">
+                        <h2>V6 vagy V7?</h2>
+                        <p>
+                            Jelenleg V6-ban a szerver de már elérhető a V7 fejlesztői változata. 
+                            Az lenne a kérdésünk, hogy melyik lenne jobb nektek?
+                        </p>
+                    </div>
+                    <div class="col-lg-7 col-12" id="szavazasParent">
+                        <div class="row">
+                            <div class="col-lg-12 col-6 text-lg-left text-center">
+                                <button type="button" class="btn-lg btn-primary mb-lg-5" onclick="ujv6()">V6-ra szavazok</button><br>
+                            </div>
+                            <div class="col-lg-12 col-6 text-lg-left text-center">
+                                <button type="button" class="btn-lg btn-primary" onclick="ujv7()">V7-re szavazok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid text-center bg-secondary text-white discord" onclick="window.open('https://discord.com/invite/ky5Qjg6BBP');">
+            <img src="assets/img/discord-logo.png" class="m-2" alt="dc logo" width="auto" height="30">
+            <span class="align-middle">Csatlakozz Discord szerverünkhöz itt!</span>
+        </div>
+
+        
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+        <script>
+            var port = "6006"
+            var ip = "localhost"
+
+            function checkIp() {
+                $.getJSON('http://ip-api.com/json', function(data) {
+                    if ( String(data.query) == "84.3.109.62") {
+                        ip = "localhost"
+                    }
+                    else {
+                        ip = "vajdasimon.ddns.net"
+                    }
+                });
+            }
+            checkIp()
+
+            function adatok(mod, nev, mit) {
+                if (mod == "uj") {
+                    localStorage.setItem(nev, mit);
+                }
+                else if (mod == "le") {
+                    return localStorage.getItem(nev);
+                }
+                else {
+                    console.log("Hibás localStorage lekérdezés.")
+                }
+            }
+
+            function ujv6() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://" + ip + ":" + port + "/api/mindustry-szavazas-uj-v6", true);
+                xhttp.send();
+                adatok("uj", "szavazott", "igen")
+                setTimeout(szavazatokMutat, 50)
+            }
+
+            function ujv7() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.open("GET", "http://" + ip + ":" + port + "/api/mindustry-szavazas-uj-v7", true);
+                xhttp.send();
+                adatok("uj", "szavazott", "igen")
+                setTimeout(szavazatokMutat, 50)
+            }
+
+            function szavazatokMutat() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        valasz = this.responseText;
+                        a = valasz.split(",");
+                        v6Szavazatok = a[0];
+                        v7Szavazatok = a[1];
+                        egyErteke = 100 / (v6Szavazatok + v7Szavazatok);
+                        v6Szazalek = v6Szavazatok * egyErteke;
+                        v7Szazalek = v7Szavazatok * egyErteke;
+                        console.log(valasz)
+                        //document.getElementById("szavazasParent").innerHTML = ""
+                        document.getElementById("szavazasParent").innerHTML = `<div class="progress my-5" style="height:40px">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning text-dark" id="prgBar1" role="progressbar" style="width:` + Math.floor(v6Szazalek * 10) + `%">V6 (` + v6Szavazatok + `)</div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="prgBar2" role="progressbar" style="width:` + Math.floor(v7Szazalek * 10) + `%">V7 (` + v7Szavazatok + `)</div>
+                        </div>`
+                    }
+                };
+                xhttp.open("GET", "http://" + ip + ":" + port + "/api/mindustry-szavazas", true);
+                xhttp.send();
+            }
+
+            function szavazottCheck() {
+                if(adatok("le", "szavazott") == "igen") {
+                    setTimeout(szavazatokMutat,50)
+                }
+            }
+            szavazottCheck()
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
