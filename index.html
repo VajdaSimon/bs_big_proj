@@ -9,7 +9,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-whitet">
-            <a class="navbar-brand" href="#"><img src="assets/img/logo.png" alt="logo" class="d-inline block align-top ml-lg-5 ml-2" width="50" height="50"></a>
+            <a class="navbar-brand"><img src="assets/img/logo.png" alt="logo" class="d-inline block align-top ml-lg-5 ml-2" width="50" height="50"></a>
             <button class="navbar-toggler ml-auto mr-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -99,32 +99,8 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         
         <script>
-            var port = "6006"
-            var ip = "localhost"
-
-            function checkIp() {
-                $.getJSON('http://ip-api.com/json', function(data) {
-                    if ( String(data.query) == "84.3.109.62") {
-                        ip = "localhost"
-                    }
-                    else {
-                        ip = "vajdasimon.ddns.net"
-                    }
-                });
-            }
-            checkIp()
-
-            function adatok(mod, nev, mit) {
-                if (mod == "uj") {
-                    localStorage.setItem(nev, mit);
-                }
-                else if (mod == "le") {
-                    return localStorage.getItem(nev);
-                }
-                else {
-                    console.log("Hibás localStorage lekérdezés.")
-                }
-            }
+            var port = "8080"
+            var ip = "vajdasimon.ddns.net"
 
             function ujv6() {
                 var xhttp = new XMLHttpRequest();
