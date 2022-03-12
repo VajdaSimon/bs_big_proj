@@ -1,0 +1,16 @@
+A játékról:
+Röviden ez egy gyárakra alapuló sandbox tower-defense játék.
+De nem kell megilyedni! Most elmondom a a hosszú verziót is.
+
+Igazából ami a legfontosabb az az, hogy ez egy logika és stratégiai játék.
+Alapvetően a Kampány pályákra épül amiből több mint 250 van és ebből 16 kézzel készített.
+Ez a 16 a story map amik végig vezetnek az egyre növekvő tech tree-n. [tech_tree.png]
+A kampány a Serpulo nevű bolygón történik. A bolygó szektorokra van felosztva és azokat kell elfoglani. [serpulo.gif] Minden szektorban az ellenség hullámokban támad
+így van időd arra, hogy megépítsd a gyárákat, drónokat és a fegyvereket. Lesznek olyan szektorok ahol ellenséges bázis van (ez az attack mód),
+ilyenkor nem csupán a szektort kell elfoglalni hanem az ellenfél bázisát is.
+
+Van lehetőséged arra is, hogy barátaiddal játsz. Ha nem ugyanazon a wifin vagytok csatlakozzatok szerverünkhöz <a>(itt az útmutató)</a>, viszont ha 
+ugyanarra a wifire vagytok csatlakozva akkor itt a segítség:
+Ez kell az egyikőtöknek csinálni: VIDEO
+És ezt a másikótoknak, aki csatlakozni fog: VIDEO 
+

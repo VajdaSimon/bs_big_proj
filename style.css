@@ -46,3 +46,22 @@ body {
 .discord {
     cursor: pointer;
 }
+
+.responsiveParagraph {
+    font-size: 125%;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        font-size: 100%;
+    }
+
+    .cover h1 {
+        font-size: 38px;
+        border-bottom: 5px solid white;
+    }
+
+    .cover p {
+        font-size: 35px;
+    }
+  }

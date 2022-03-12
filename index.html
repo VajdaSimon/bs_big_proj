@@ -41,7 +41,7 @@
         <div class="jumbotron jumbotron-fluid cover">
             <div class="container text-white text-center">
                 <h1 class="pb-3">A hivatalos magyar Mindustry szerver</h1>
-                <p>HUDUSTRY.TK</p>
+                <p>PLAY.HUDUSTRY.TK</p>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-12">
                         <h2>V6 vagy V7?</h2>
-                        <p>
+                        <p class="responsiveParagraph">
                             Jelenleg V6-ban a szerver de már elérhető a V7 fejlesztői változata. 
                             Az lenne a kérdésünk, hogy melyik lenne jobb nektek?
                         </p>
@@ -100,7 +100,19 @@
         
         <script>
             var port = "8080"
-            var ip = "vajdasimon.ddns.net"
+            var ip = "web.hudustry.tk"
+
+            function adatok(mod, nev, mit) {
+				if (mod == "uj") {
+					localStorage.setItem(nev, mit);
+				}
+				else if (mod == "le") {
+					return localStorage.getItem(nev);
+				}
+				else {
+					console.log("Hibás localStorage lekérdezés.")
+				}
+			}
 
             function ujv6() {
                 var xhttp = new XMLHttpRequest();
