@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="hu">
+        <link rel="shortcut icon" href="/assets/img/logo.png" />
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="/style.css" type="text/css">
-        <title></title>
+        <title>Hudustry.tk | A játékról</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-whitet">
@@ -18,11 +19,11 @@
                 <li class="nav-item ml-lg-3">
                   <a class="nav-link" href="/index.html">Kezdőlap</a>
                 </li>
-                <li class="nav-item ml-lg-3">
-                  <a class="nav-link" href="#">A játékról</a>
+                <li class="nav-item ml-lg-3 active">
+                  <a class="nav-link">A játékról <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active ml-lg-3">
-                    <a class="nav-link">Szerver állapot <span class="sr-only">(current)</span></a>
+                <li class="nav-item ml-lg-3">
+                    <a class="nav-link" href="szerver-allapot.html">Szerver állapot</a>
                 </li>
                 <li class="nav-item dropdown ml-lg-3">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,54 +39,35 @@
             </div>
         </nav>
 
-        <div class="jumbotron jumbotron-fluid cover">
+        <div class="jumbotron jumbotron-fluid cover mb-0">
             <div class="container text-white text-center">
                 <h1 class="pb-3">A hivatalos magyar Mindustry szerver</h1>
                 <p>PLAY.HUDUSTRY.TK</p>
             </div>
         </div>
 
-        <div class="container text-white mb-5">
-            <div class="row mb-3">
-                <div class="col-12">
-                    <span>CPU használat:</span>
-                    <span class="float-right" id="cpuSzam"></span>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 0%;" id="cpuProgress"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-12">
-                    <span>RAM használat:</span>
-                    <span class="float-right" id="ramSzam"></span>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 0%;" id="ramProgress"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <span>Online játékosok:</span>
-                    <span class="float-right" id="onlineJatekosok"></span>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 100%;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="jumbotron jumbotron-fluid bg-dark text-white">
+        <section class="bg-dark text-white py-5">
             <div class="container">
-                <h2>Fontos a játékélmény!</h2>
-                <p>
-                    Amikor játszasz az egyik szerveren fontos nekünk, hogy ne legyen probléma.
-                    És pontossan ezért alkottuk meg ezt az oldalt! Megalkottuk, hogy te is nyomon tudd követni a szervergép állapotát, 
-                    így ha gond van te is tudsz szólni nekünk.
-                    De hogyan? Vetődik fel a kérdés. A választ nem kell sokáig keresni ugyanis ha <a>ide kattintasz</a> már csatlakozhatsz is 
-                    Discord szerverünkhöz. Ha ez megvan, akkor már csak egy üzenet kell küldened. :)
-                </p>
+                <div class="row">
+                    <h2>A játékról</h2>
+                    <p class="responsiveParagraph">
+                        Röviden és tömören ez egy gyárakra alapuló sandbox tower-defense játék. 
+                        De ami a legfontosabb az az, hogy ez egy logika és stratégiai játék.
+                        Alapvetően a Kampány pályákra épül amiből több mint 250 van és ebből 16 kézzel készített.
+                        Ez a 16 a story map amik végig vezetnek az egyre növekvő tech tree-n.
+                        <img src="/assets/img/tech_tree.png" class="img-fluid rounded my-4 border border-white" alt="A tech tree-ről egy kép">
+                        <img src="/assets/img/serpulo.gif" class="img-fluid rounded float-lg-right border border-white ml-lg-4 mb-4 mb-lg-0 serpulo" alt="Serpulo">
+                        A kampány a Serpulo nevű bolygón történik. A bolygó szektorokra van felosztva és azokat kell elfoglani. Minden szektorban az ellenség hullámokban támad
+                        így van időd arra, hogy megépítsd a gyárákat, drónokat és a fegyvereket. Lesznek olyan szektorok ahol ellenséges bázis van (ez az attack mód),
+                        ilyenkor nem csupán a szektort kell elfoglalni hanem az ellenfél bázisát is.
+                    </p>
+                </div>
             </div>
+        </section>
+
+        <div class="container-fluid text-center bg-secondary text-white discord" onclick="window.open('https://discord.com/invite/ky5Qjg6BBP');">
+            <img src="/assets/img/discord-logo.png" class="m-2" alt="dc logo" width="auto" height="30">
+            <span class="align-middle">Csatlakozz Discord szerverünkhöz itt!</span>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

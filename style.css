@@ -51,7 +51,11 @@ body {
     font-size: 125%;
 }
 
-@media only screen and (max-width: 800px) {
+.serpulo {
+    width: 50%;
+}
+
+@media only screen and (max-width: 992px) {
     body {
         font-size: 100%;
     }
@@ -63,5 +67,9 @@ body {
 
     .cover p {
         font-size: 35px;
+    }
+
+    .serpulo {
+        width: 100%;
     }
   }
