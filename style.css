@@ -5,6 +5,10 @@
     font-family: 'Rubik', sans-serif;
 }
 
+.navbar {
+    font-size: 120%;
+}
+
 .cover h1 {
     font-size: 50px;
     border-bottom: 5px solid white;
@@ -55,6 +59,12 @@ body {
     width: 50%;
 }
 
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
 @media only screen and (max-width: 992px) {
     body {
         font-size: 100%;
@@ -71,5 +81,13 @@ body {
 
     .serpulo {
         width: 100%;
+    }
+
+    .responsiveParagraph {
+        font-size: 100%;
+    }
+
+    .navbar {
+        font-size: 105%;
     }
   }

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="/style.css" type="text/css">
+        <script src="/main.js"></script>
         <title>Hudustry.tk | Szerver állapot</title>
     </head>
     <body>
@@ -79,7 +80,7 @@
         <div class="jumbotron jumbotron-fluid bg-dark text-white">
             <div class="container">
                 <h2>Fontos a játékélmény!</h2>
-                <p>
+                <p class="responsiveParagraph">
                     Amikor játszasz az egyik szerveren fontos nekünk, hogy ne legyen probléma.
                     És pontossan ezért alkottuk meg ezt az oldalt! Megalkottuk, hogy te is nyomon tudd követni a szervergép állapotát, 
                     így ha gond van te is tudsz szólni nekünk.
@@ -88,56 +89,6 @@
                 </p>
             </div>
         </div>
-
-        <script>
-            function adatokBetoltese() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        valasz = this.responseText;
-                        a = valasz.split(",");
-                        cpu = a[0].slice(0, -2)
-                        ram = a[1].slice(0, -2)
-                        players = a[2]
-
-                        document.getElementById("cpuSzam").innerHTML = cpu + "%"
-                        document.getElementById("cpuProgress").style.width = cpu + "%"
-                        document.getElementById("ramSzam").innerHTML = ram + "%"
-                        document.getElementById("ramProgress").style.width = ram + "%"
-                        document.getElementById("onlineJatekosok").innerHTML = players + " fő"
-
-                        cpuSzin = Math.floor((255 / 100) * cpu)
-                        document.getElementById("cpuProgress").style.backgroundColor = "rgb(" + cpuSzin + ", " + (255 - cpuSzin) + ", 0)"
-                        ramSzin = Math.floor((255 / 100) * ram)
-                        document.getElementById("ramProgress").style.backgroundColor = "rgb(" + ramSzin + ", " + (255 - ramSzin) + ", 0)"
-                    }
-                };
-                xhttp.open("GET", "http://web.hudustry.tk:8080/api/status", true);
-                xhttp.send();
-            }
-            adatokBetoltese()
-
-            /* function adatBeTest() {
-                a = Math.floor(Math.random() * 100) + "," + Math.floor(Math.random() * 100) + "," + Math.floor(Math.random() * 100)
-                a = a.split(",");
-                cpu = a[0]
-                ram = a[1]
-                players = a[2]
-
-                document.getElementById("cpuSzam").innerHTML = cpu + "%"
-                document.getElementById("cpuProgress").style.width = cpu + "%"
-                document.getElementById("ramSzam").innerHTML = ram + "%"
-                document.getElementById("ramProgress").style.width = ram + "%"
-                document.getElementById("onlineJatekosok").innerHTML = players + " fő"
-
-                cpuSzin = Math.floor((255 / 100) * cpu)
-                document.getElementById("cpuProgress").style.backgroundColor = "rgb(" + cpuSzin + ", " + (255 - cpuSzin) + ", 0)"
-                ramSzin = Math.floor((255 / 100) * ram)
-                document.getElementById("ramProgress").style.backgroundColor = "rgb(" + ramSzin + ", " + (255 - ramSzin) + ", 0)"
-            }
-            adatBeTest() */
-        </script>
-        
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
