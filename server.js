@@ -4,7 +4,7 @@
 const express = require('express')
 const request = require('request');
 const app = express()
-const port = 6006
+const port = 8080
 var fs = require('fs');
 
 const szavazas = [0, 0] //v6,v7
