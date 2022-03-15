@@ -15,10 +15,12 @@ class MyServer(BaseHTTPRequestHandler):
             cpu = str(psutil.cpu_percent(1))
             ram = str(psutil.virtual_memory()[2])
 
-            response = requests.get('http://192.168.0.21:4567/teszt/vajdasimon.ddns.net')
+            response = requests.get('http://192.168.0.21:4567/api/v1?key=db3e1891ff67ebf0feaa56a60bf03d39')
             adatok = response.json()
 
-            self.wfile.write(bytes(cpu + "," + ram + "," + str(adatok["players"]), "utf-8"))
+            players = adatok["hub"]["playerCount"] + adatok["attack"]["playerCount"] + adatok["survival"]["playerCount"] + adatok["pvp"]["playerCount"]
+
+            self.wfile.write(bytes(cpu + "," + ram + "," + str(players), "utf-8"))
 
         else:
             self.send_response(200)
