@@ -1,9 +1,11 @@
 import psutil
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import requests
+import re
+import json
 
-hostName = "192.168.0.21"
-serverPort = 4568
+hostName = "localhost"
+serverPort = 4000
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -16,11 +18,12 @@ class MyServer(BaseHTTPRequestHandler):
             ram = str(psutil.virtual_memory()[2])
 
             response = requests.get('http://192.168.0.21:4567/api/v1?key=db3e1891ff67ebf0feaa56a60bf03d39')
-            adatok = response.json()
+            adatok = str(response.json())
+            adatok = re.sub(r", 'uuid(.{28})'", '', adatok )
 
-            players = adatok["hub"]["playerCount"] + adatok["attack"]["playerCount"] + adatok["survival"]["playerCount"] + adatok["pvp"]["playerCount"]
+            #players = adatok["hub"]["playerCount"] + adatok["attack"]["playerCount"] + adatok["survival"]["playerCount"] + adatok["pvp"]["playerCount"]
 
-            self.wfile.write(bytes(cpu + "," + ram + "," + str(players), "utf-8"))
+            self.wfile.write(bytes(cpu + "," + ram + "," + adatok, "utf-8"))
 
         else:
             self.send_response(200)
