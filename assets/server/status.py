@@ -23,7 +23,7 @@ class MyServer(BaseHTTPRequestHandler):
 
             #players = adatok["hub"]["playerCount"] + adatok["attack"]["playerCount"] + adatok["survival"]["playerCount"] + adatok["pvp"]["playerCount"]
 
-            self.wfile.write(bytes(cpu + "," + ram + "," + adatok, "utf-8"))
+            self.wfile.write(bytes("{'cpu': '" + cpu + "', 'ram':'" + ram + "'," + adatok[1:], "utf-8"))
 
         else:
             self.send_response(200)

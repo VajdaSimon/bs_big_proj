@@ -120,7 +120,6 @@ function adatokBetoltese() {
     xhttp.open("GET", "http://" + ip + ":" + port + "/api/status", true);
     xhttp.send();
 }
-adatokBetoltese()
 
 /* function adatBeTest() {
     a = Math.floor(Math.random() * 100) + "," + Math.floor(Math.random() * 100) + "," + Math.floor(Math.random() * 100)
