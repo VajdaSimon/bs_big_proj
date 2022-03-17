@@ -20,10 +20,12 @@ class MyServer(BaseHTTPRequestHandler):
             response = requests.get('http://192.168.0.21:4567/api/v1?key=db3e1891ff67ebf0feaa56a60bf03d39')
             adatok = str(response.json())
             adatok = re.sub(r", 'uuid(.{28})'", '', adatok )
+            adatok = "{'cpu': " + cpu + ", 'ram': " + ram + ", " + adatok[1:]
+            adatok = adatok.replace("\'","\"").replace("False","false").replace("True","true")
 
             #players = adatok["hub"]["playerCount"] + adatok["attack"]["playerCount"] + adatok["survival"]["playerCount"] + adatok["pvp"]["playerCount"]
 
-            self.wfile.write(bytes("{'cpu': '" + cpu + "', 'ram':'" + ram + "'," + adatok[1:], "utf-8"))
+            self.wfile.write(bytes(str(adatok), "utf-8"))
 
         else:
             self.send_response(200)
