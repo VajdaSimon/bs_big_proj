@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="/style.css" type="text/css">
-        <script src="/main.js"></script>
+        <!-- <script src="/main.js"></script> -->
         <title>Hudustry.tk | Szerver állapot</title>
     </head>
     <body>
@@ -77,6 +77,74 @@
             </div>
         </div>
 
+        <div class="container text-white pb-5">
+            <div class="row gameMod">
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Survival</h2>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Map:
+                            </div>
+                            <div class="col-6 text-right" id="survival_map">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Hullámok:
+                            </div>
+                            <div class="col-6 text-right" id="survival_waves">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Épületek:
+                            </div>
+                            <div class="col-6 text-right" id="survival_builds">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Egységek:
+                            </div>
+                            <div class="col-6 text-right" id="survival_units">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Játékosok:
+                            </div>
+                            <div class="col-6 text-right" id="survival_players">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Attack</h2>
+                        <p>Az ellenség már itt van! Légy te a hős és mentsd meg a Core-t!</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">1v1</h2>
+                    <p>Vajon ki a jobb játékos? Te vagy a barátod? Itt az idő, hogy kiderítsd!</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Lobby</h2>
+                        <p>Játékosok: Nyugi... Ez csak átjáróház.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="jumbotron jumbotron-fluid bg-dark text-white">
             <div class="container">
                 <h2>Fontos a játékélmény!</h2>
@@ -90,36 +158,49 @@
             </div>
         </div>
 
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
            function adatokBetoltese() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        valasz = this.responseText;
-                        a = valasz.split("-;-");
-                        cpu = a[0].slice(0, -2)
-                        ram = a[1].slice(0, -2)
-                        adatok = JSON.parse(JSON.stringify(a[2]))
-                        console.log(adatok)
+                        adatok = JSON.parse(this.responseText);
 
-                        document.getElementById("cpuSzam").innerHTML = cpu + "%"
-                        document.getElementById("cpuProgress").style.width = cpu + "%"
-                        document.getElementById("ramSzam").innerHTML = ram + "%"
-                        document.getElementById("ramProgress").style.width = ram + "%"
-                        //document.getElementById("onlineJatekosok").innerHTML = players + " fő"
+                        document.getElementById("cpuSzam").innerHTML = adatok.cpu + "%"
+                        document.getElementById("cpuProgress").style.width = adatok.cpu + "%"
+                        document.getElementById("ramSzam").innerHTML = adatok.ram + "%"
+                        document.getElementById("ramProgress").style.width = adatok.ram + "%"
+                        document.getElementById("onlineJatekosok").innerHTML = adatok.hub.playerCount + adatok.attack.playerCount + adatok.survival.playerCount + adatok.pvp.playerCount + " fő"
 
-                        cpuSzin = Math.floor((255 / 100) * cpu)
+                        cpuSzin = Math.floor((255 / 100) * adatok.cpu)
                         document.getElementById("cpuProgress").style.backgroundColor = "rgb(" + cpuSzin + ", " + (255 - cpuSzin) + ", 0)"
-                        ramSzin = Math.floor((255 / 100) * ram)
+                        ramSzin = Math.floor((255 / 100) * adatok.ram)
                         document.getElementById("ramProgress").style.backgroundColor = "rgb(" + ramSzin + ", " + (255 - ramSzin) + ", 0)"
+                    
+                        document.getElementById("survival_map").innerHTML = adatok.survival.mapName
+                        document.getElementById("survival_waves").innerHTML = adatok.survival.wave
+                        document.getElementById("survival_builds").innerHTML = adatok.survival.builds
+                        document.getElementById("survival_units").innerHTML = adatok.survival.units
+                        if (adatok.survival.playerCount > 0) {
+                            document.getElementById("survival_players").innerHTML = adatok.survival.playerCount
+                            document.getElementById("survival_players").innerHTML += "  <img src='/assets/img/dropdown.png' class='img-fluid ml-1' width='25'>"
+                            for (var i = 0; i < adatok.survival.players.length; i++) {
+
+                            }
+                        }
+                        else {
+                            document.getElementById("survival_players").innerHTML = "A szerver csak rád vár!"
+                        }
                     }
                 };
                 xhttp.open("GET", "http://localhost:8080/api/status", true);
                 xhttp.send();
             }
             adatokBetoltese()
+
+            function playersOpen(mod) {
+                
+            }
         </script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
