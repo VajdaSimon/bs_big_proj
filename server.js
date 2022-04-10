@@ -20,7 +20,6 @@ app.get('/api/status', (req, res) => {
 });
 
 app.get('/api/mindustry-szavazas', (req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8080');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(String(szavazas));
     return res.end();

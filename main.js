@@ -188,10 +188,10 @@ function adatokKiir() {
                 }
                 else {
                     if (nameColor(adatokMod[szam].players[i].name, adatokMod[szam].players[i].stripName, adatokMod[szam].players[i].hexColor) != "hiba") {
-                        document.getElementById(mod[szam] + "_players_list").innerHTML += nameColor(adatokMod[szam].players[i].name, adatokMod[szam].players[i].stripName, adatokMod[szam].players[i].hexColor)
+                        document.getElementById(mod[szam] + "_players_list").innerHTML += nameColor(adatokMod[szam].players[i].name, adatokMod[szam].players[i].stripName, adatokMod[szam].players[i].hexColor) + "<br>"
                     }
                     else {
-                        document.getElementById(mod[szam] + "_players_list").innerHTML += renderString(adatokMod[szam].players[i].name)
+                        document.getElementById(mod[szam] + "_players_list").innerHTML += renderString(adatokMod[szam].players[i].name) + "<br>"
                     }
                 }
             }
