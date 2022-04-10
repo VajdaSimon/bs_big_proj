@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="container text-white mb-5">
+        <div class="container text-white mb-5" id="adatokParent" style="width: 100%;height: 100%;">
             <div class="row mb-3">
                 <div class="col-12">
                     <span>CPU használat:</span>
@@ -77,6 +77,215 @@
             </div>
         </div>
 
+        <div class="container text-white pb-5">
+            <div class="row gameMod">
+                <!-- survival -->
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Survival</h2>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Map:
+                            </div>
+                            <div class="col-6 text-right" id="survival_map">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Hullámok:
+                            </div>
+                            <div class="col-6 text-right" id="survival_waves">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Épületek:
+                            </div>
+                            <div class="col-6 text-right" id="survival_builds">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Egységek:
+                            </div>
+                            <div class="col-6 text-right" id="survival_units">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Játékosok:
+                            </div>
+                            <div class="col-6 text-right" id="survival_players">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph px-5" id="survival_players_list_parent" style="display: none;">
+                            <div class="col-12" id="survival_players_list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Attack -->
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Attack</h2>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Map:
+                            </div>
+                            <div class="col-6 text-right" id="attack_map">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Hullámok:
+                            </div>
+                            <div class="col-6 text-right" id="attack_waves">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Épületek:
+                            </div>
+                            <div class="col-6 text-right" id="attack_builds">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Egységek:
+                            </div>
+                            <div class="col-6 text-right" id="attack_units">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Játékosok:
+                            </div>
+                            <div class="col-6 text-right" id="attack_players">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph px-5" id="attack_players_list_parent" style="display: none;">
+                            <div class="col-12" id="attack_players_list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 1v1 -->
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">1v1</h2>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Map:
+                            </div>
+                            <div class="col-6 text-right" id="pvp_map">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Hullámok:
+                            </div>
+                            <div class="col-6 text-right" id="pvp_waves">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Épületek:
+                            </div>
+                            <div class="col-6 text-right" id="pvp_builds">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Egységek:
+                            </div>
+                            <div class="col-6 text-right" id="pvp_units">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Játékosok:
+                            </div>
+                            <div class="col-6 text-right" id="pvp_players">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph px-5" id="pvp_players_list_parent" style="display: none;">
+                            <div class="col-12" id="pvp_players_list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lobby -->
+                <div class="col-lg-6 col-12  my-2">
+                    <div class="bg-info px-3" style="width: 100%; height: 100%;">
+                        <h2 class="my-2">Lobby</h2>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Map:
+                            </div>
+                            <div class="col-6 text-right" id="lobby_map">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Hullámok:
+                            </div>
+                            <div class="col-6 text-right" id="lobby_waves">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Épületek:
+                            </div>
+                            <div class="col-6 text-right" id="lobby_builds">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph" style="background-color: #0093c0">
+                            <div class="col-6 text-left">
+                                Egységek:
+                            </div>
+                            <div class="col-6 text-right" id="lobby_units">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph">
+                            <div class="col-6 text-left">
+                                Játékosok:
+                            </div>
+                            <div class="col-6 text-right" id="lobby_players">
+                                
+                            </div>
+                        </div>
+                        <div class="row responsiveParagraph px-5" id="lobby_players_list_parent" style="display: none;">
+                            <div class="col-12" id="lobby_players_list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="jumbotron jumbotron-fluid bg-dark text-white">
             <div class="container">
                 <h2>Fontos a játékélmény!</h2>
@@ -90,6 +299,7 @@
             </div>
         </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script>
             adatokBetoltese()
         </script>

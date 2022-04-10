@@ -5,6 +5,13 @@
     font-family: 'Rubik', sans-serif;
 }
 
+* {
+    cursor: url(assets/img/cursor.png), pointer;
+}
+a, button, .discord, .btn-lg, .btn-primary, .pointer {
+    cursor: url(assets/img/hand.png), pointer;
+}
+
 .navbar {
     font-size: 120%;
 }
