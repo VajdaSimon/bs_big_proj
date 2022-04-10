@@ -12,7 +12,7 @@ const szavazas = [0, 0] //v6,v7
 app.use(express.static("."));
 
 app.get('/api/status', (req, res) => {
-    request('http://localhost:4000/status', function (error, response, body) {
+    request('http://web.hudustry.tk:8080/api/status', function (error, response, body) {
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.write(body);
         return res.end();
